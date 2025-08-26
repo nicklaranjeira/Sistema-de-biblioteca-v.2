@@ -1,4 +1,5 @@
 from classes import *
+import os
 livro = {}
 livro[0]  = Livro(id = 1, titulo="1984", autor="George Orwell", genero="Distopia", situacao="disponível")
 livro[1]  = Livro(id = 2,titulo="Admirável Mundo Novo", autor="Aldous Huxley", genero="Distopia", situacao="disponível")
@@ -32,7 +33,7 @@ livro[24] = Livro(id = 25,titulo="Mistborn", autor="Brandon Sanderson", genero="
 
 def emprestar(livro):
     print("--------Empréstimo de livro---------")
-    busca = int(input("Como deseja buscar?\n1-Por Genêro textual\n2-Autor\n3-Todos os livros"))
+    busca = int(input("Como deseja buscar?\n1-Por Genêro textual \n2-Autor \n3-Todos os livros"))
     if busca == 1: 
         listar_por_genero(livro)
     if busca == 2:
@@ -40,7 +41,16 @@ def emprestar(livro):
     if busca == 3:
         listar_todos_livros(livro)
     empréstimo = int(input("Digite o Id do livro que você deseja emprestar\n----->"))
-    livro[empréstimo] = livro[empréstimo].setSituacao(Situacao='Emprestado')
+    livro[empréstimo] = livro[empréstimo].setSituacao(situacao='Emprestado')
+    print("Livro emprestado com sucesso!\nPrazo máximo para devolução: 30 dias")
+    back_menu = int(input("Pressione 1 para voltar ao menu e 0 para sair do sistema\n---->"))
+    if back_menu == 1:
+        menu_principal()
+    if back_menu == 2:
+        print("Saindo...")
+        os.system("cls")
+        os.system('pause')
+        
 
 
 def menu_listar(livro):
@@ -62,7 +72,7 @@ def menu_listar(livro):
     elif opcao == 4:
         listar_emprestados(livro)
     elif opcao == 0:
-        return
+        menu_principal()
     else:
         print("Opção invalida")
 
@@ -71,7 +81,7 @@ def listar_todos_livros(livro):
         print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
 def listar_por_genero(livro):
-    busca_genero = int(input("Escolha o genêro da pesquisa: \n1-Distopia\2-Fantasia\3-Ficção"))
+    busca_genero = input("Digite o genêro da pesquisa: \n1-Distopia \n2-Fantasia \n3-Ficção\n----->")
     for id, valor in livro.items():
         if valor.getGenero() == busca_genero:
             print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
@@ -121,3 +131,33 @@ def adicionar_livro(livro):
 
 def editar_livro(livro):
     pass
+
+def menu_principal():
+    while True:
+        print("Bem-vindo ao sistema de biblioteca!")
+        print("Selecione a opção que deseja:")
+        print("1 - Listar livros")
+        print("2 - Adicionar livro")
+        print("3 - Remover livro")
+        print("4 - Editar livro")
+        print("5 - Emprestar livro")
+        print("6 - Devolver livro")
+        print("0 - Sair")
+        opcao = int(input("Opção: "))
+
+        if opcao == 1:
+            menu_listar(livro)
+        elif opcao == 2:
+            adicionar_livro(livro)
+        elif opcao == 3:
+            remover_livro(livro, None)  
+        elif opcao == 4:
+            editar_livro(livro)
+        elif opcao == 5:
+            emprestar(livro)
+        elif opcao == 0:
+            print("Saindo...")
+            break
+        else:
+            print("Opção inválida.")
+            continue

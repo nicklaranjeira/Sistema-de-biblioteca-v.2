@@ -25,12 +25,20 @@ class Livro:
     # 
     def setTitulo(self, titulo):
         self.__titulo = titulo
+        return titulo
 
     def setAutor(self, autor):
         self.__autor = autor
+        return autor
 
     def setGenero(self, genero):
         self.__genero = genero
+        return genero
 
     def setSituacao(self, situacao):
         self.__situacao = situacao
+        return situacao
+
+    def setId(self, id):
+        self.__id = id
+        return id
