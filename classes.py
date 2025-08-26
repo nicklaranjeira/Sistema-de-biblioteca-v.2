@@ -1,16 +1,10 @@
-class Emprestado:
-    def __init__(self, titulo, autor, genero, situacao):
+class Livros:
+    def __init__(self, titulo, autor, genero, disponivel):
         self.__titulo = titulo
         self.__autor = autor
         self.__genero = genero
-        self.__situacao= situacao
+        self.__disponivel= disponivel
 
-class Disponiveis:
-    def __init__(self, titulo, autor, genero, situacao):
-        self.__titulo = titulo
-        self.__autor = autor
-        self.__genero = genero
-        self.__situacao= situacao
     # ----------------------------------------------------------------------
 # Metódos GETS and SETs 
 #GETs
@@ -24,8 +18,8 @@ def getAutor(self):
 def getGenero(self):
     return self.__genero
 
-def getSituacao(self):
-    return self.__situacao
+def getDisponivel(self):
+    return self.__disponivel
 
 #SETs 
 def setTitulo(self,titulo):
@@ -40,6 +34,6 @@ def setGenero(self,genero):
     self.__genero = genero
     return self.__genero
 
-def setSituacao(self,situacao):
-    self.__situacao = situacao
-    return self.__situacao
+def setDisponivel(self,disponivel):
+    self.__disponivel = disponivel
+    return self.__disponivel
