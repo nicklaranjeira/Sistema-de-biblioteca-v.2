@@ -92,3 +92,21 @@ def remover_livro(livro,id):
         return
     else:
         print("Opção inválida.")
+
+def adicionar_livro(livro):
+    print("Selecione uma opção: ")
+    print("1- Adicionar livro")
+    print("0- Voltar ao menu principal")
+    opcao = int(input("Opção: "))
+    if opcao == 1:
+        id = int(input("ID do livro: "))
+        titulo = input("Título do livro: ")
+        autor = input("Autor do livro: ")
+        genero = input("Gênero do livro: ")
+        situacao = "disponível"
+        livro[id] = Livro(id, titulo, autor, genero, situacao)
+        print("Livro adicionado com sucesso.")
+    elif opcao == 0:
+        return
+    else:
+        print("Opção inválida.")
