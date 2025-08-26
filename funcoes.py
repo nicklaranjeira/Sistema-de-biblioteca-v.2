@@ -1,7 +1,57 @@
 from classes import *
-livros = []
+livro1  = Livro(titulo="1984", autor="George Orwell", genero="Distopia", situacao="disponível")
+livro2  = Livro(titulo="Admirável Mundo Novo", autor="Aldous Huxley", genero="Distopia", situacao="disponível")
+livro3  = Livro(titulo="Fahrenheit 451", autor="Ray Bradbury", genero="Distopia", situacao="disponível")
+livro4  = Livro(titulo="Jogos Vorazes", autor="Suzanne Collins", genero="Distopia", situacao="disponível")
+livro5  = Livro(titulo="Laranja Mecânica", autor="Anthony Burgess", genero="Distopia", situacao="disponível")
+
+livro6  = Livro(titulo="O Hobbit", autor="J.R.R. Tolkien", genero="Fantasia", situacao="disponível")
+livro7  = Livro(titulo="O Senhor dos Anéis", autor="J.R.R. Tolkien", genero="Fantasia", situacao="disponível")
+livro8  = Livro(titulo="As Crônicas de Nárnia", autor="C.S. Lewis", genero="Fantasia", situacao="disponível")
+livro9  = Livro(titulo="Harry Potter e a Pedra Filosofal", autor="J.K. Rowling", genero="Fantasia", situacao="disponível")
+livro10 = Livro(titulo="Percy Jackson e o Ladrão de Raios", autor="Rick Riordan", genero="Fantasia", situacao="disponível")
+
+livro11 = Livro(titulo="Fundação", autor="Isaac Asimov", genero="Ficção", situacao="disponível")
+livro12 = Livro(titulo="Eu, Robô", autor="Isaac Asimov", genero="Ficção", situacao="disponível")
+livro13 = Livro(titulo="Neuromancer", autor="William Gibson", genero="Ficção", situacao="disponível")
+livro14 = Livro(titulo="Duna", autor="Frank Herbert", genero="Ficção", situacao="disponível")
+livro15 = Livro(titulo="Frankenstein", autor="Mary Shelley", genero="Ficção", situacao="disponível")
+
+livro16 = Livro(titulo="A Revolução dos Bichos", autor="George Orwell", genero="Distopia", situacao="disponível")
+livro17 = Livro(titulo="A Máquina do Tempo", autor="H.G. Wells", genero="Ficção", situacao="disponível")
+livro18 = Livro(titulo="Guerra dos Mundos", autor="H.G. Wells", genero="Ficção", situacao="disponível")
+livro19 = Livro(titulo="A Canção de Gelo e Fogo", autor="George R.R. Martin", genero="Fantasia", situacao="disponível")
+livro20 = Livro(titulo="O Nome do Vento", autor="Patrick Rothfuss", genero="Fantasia", situacao="disponível")
+
+livro21 = Livro(titulo="A Mão Esquerda da Escuridão", autor="Ursula K. Le Guin", genero="Ficção", situacao="disponível")
+livro22 = Livro(titulo="Os Despossuídos", autor="Ursula K. Le Guin", genero="Ficção", situacao="disponível")
+livro23 = Livro(titulo="O Conto da Aia", autor="Margaret Atwood", genero="Distopia", situacao="disponível")
+livro24 = Livro(titulo="A Roda do Tempo", autor="Robert Jordan", genero="Fantasia", situacao="disponível")
+livro25 = Livro(titulo="Mistborn", autor="Brandon Sanderson", genero="Fantasia", situacao="disponível")
 
 
-
-
-
+Livro[0]= livro1
+Livro[1]= livro2
+Livro[2]= livro3
+Livro[3]= livro4
+Livro[4]= livro5
+Livro[5]= livro6
+Livro[6]= livro7
+Livro[7]= livro8
+Livro[8]= livro9
+Livro[9]=livro10
+Livro[10]=livro11
+Livro[11]=livro12
+Livro[12]=livro13
+Livro[13]=livro14
+Livro[14]=livro15
+Livro[15]=livro16
+Livro[16]=livro17
+Livro[17]=livro18
+Livro[18]=livro19
+Livro[19]=livro20
+Livro[20]=livro21
+Livro[21]=livro22
+Livro[22]=livro23
+Livro[23]=livro24
+Livro[24]=livro25
