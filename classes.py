@@ -1,39 +1,32 @@
-class Livros:
-    def __init__(self, titulo, autor, genero, disponivel):
+class Livro:
+    def _init_(self, titulo, autor, genero, situacao="Disponível"):
         self.__titulo = titulo
         self.__autor = autor
         self.__genero = genero
-        self.__disponivel= disponivel
+        self.__situacao = situacao
 
-    # ----------------------------------------------------------------------
-# Metódos GETS and SETs 
-#GETs
+    # 
+    def getTitulo(self):
+        return self.__titulo
 
-def getTitulo(self):
-    return self.__titulo
+    def getAutor(self):
+        return self.__autor
 
-def getAutor(self):
-    return self.__autor
+    def getGenero(self):
+        return self.__genero
 
-def getGenero(self):
-    return self.__genero
+    def getSituacao(self):
+        return self.__situacao
 
-def getDisponivel(self):
-    return self.__disponivel
+    # 
+    def setTitulo(self, titulo):
+        self.__titulo = titulo
 
-#SETs 
-def setTitulo(self,titulo):
-    self.__titulo = titulo
-    return self.__titulo
+    def setAutor(self, autor):
+        self.__autor = autor
 
-def setAutor(self,autor):
-    self.__autor = autor
-    return self.__autor
+    def setGenero(self, genero):
+        self.__genero = genero
 
-def setGenero(self,genero):
-    self.__genero = genero
-    return self.__genero
-
-def setDisponivel(self,disponivel):
-    self.__disponivel = disponivel
-    return self.__disponivel
+    def setSituacao(self, situacao):
+        self.__situacao = situacao
