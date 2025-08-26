@@ -104,7 +104,8 @@ def adicionar_livro(livro):
     print("1- Adicionar livro")
     print("0- Voltar ao menu principal")
     opcao = int(input("Opção: "))
-    if opcao == 1:        id = int(input("ID do livro: "))
+    if opcao == 1:       
+        id = int(input("ID do livro: "))
         titulo = input("Título do livro: ")
         autor = input("Autor do livro: ")
         genero = input("Gênero do livro: ")

@@ -21,6 +21,8 @@ while True:
         remover_livro(livro, None)  
     elif opcao == 4:
         editar_livro(livro)
+    elif opcao == 5:
+        emprestar()
     elif opcao == 0:
         print("Saindo...")
         break
