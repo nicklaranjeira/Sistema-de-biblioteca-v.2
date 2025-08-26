@@ -60,7 +60,7 @@ print(livro)
 
 def emprestar(livro):
     emprestimo = int(input("Selecione o livro que você quer emprestar:\n\n"))
-    for chave, valor in livro.items():
-        (print(f'{chave} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}'))
+    for id, valor in livro.items():
+        (print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}'))
 
     livro_emprestado = emprestimo
