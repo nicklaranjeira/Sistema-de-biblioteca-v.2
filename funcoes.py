@@ -110,3 +110,6 @@ def adicionar_livro(livro):
         return
     else:
         print("Opção inválida.")
+
+def editar_livro(livro):
+    pass
