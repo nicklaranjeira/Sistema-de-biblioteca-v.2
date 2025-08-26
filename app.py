@@ -1,5 +1,6 @@
 import os
 from funcoes import *
+from classes import *
 
 while True:
     print("Bem-vindo ao sistema de biblioteca!")
@@ -22,7 +23,7 @@ while True:
     elif opcao == 4:
         editar_livro(livro)
     elif opcao == 5:
-        emprestar()
+        emprestar(livro)
     elif opcao == 0:
         print("Saindo...")
         break

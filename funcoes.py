@@ -31,14 +31,14 @@ livro[24] = Livro(id = 25,titulo="Mistborn", autor="Brandon Sanderson", genero="
 
 
 def emprestar(livro):
-    print(10*"-""Empréstimo de livro""-"*10)
-    busca = int(input("Como deseja buscar?\n1-Por Genêro textual\n2-Autor\3-Todos os livros"))
+    print("--------Empréstimo de livro---------")
+    busca = int(input("Como deseja buscar?\n1-Por Genêro textual\n2-Autor\n3-Todos os livros"))
     if busca == 1: 
-        listar_por_genero()
+        listar_por_genero(livro)
     if busca == 2:
-        listar_por_autor()
+        listar_por_autor(livro)
     if busca == 3:
-        listar_todos_livros()
+        listar_todos_livros(livro)
     empréstimo = int(input("Digite o Id do livro que você deseja emprestar\n----->"))
     livro[empréstimo] = livro[empréstimo].setSituacao(Situacao='Emprestado')
 
@@ -70,14 +70,16 @@ def listar_todos_livros(livro):
     for id, valor in livro.items():
         print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
-def listar_por_genero(livro, genero):
+def listar_por_genero(livro):
+    busca_genero = int(input("Escolha o genêro da pesquisa: \n1-Distopia\2-Fantasia\3-Ficção"))
     for id, valor in livro.items():
-        if valor.getGenero() == genero:
+        if valor.getGenero() == busca_genero:
             print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
-def listar_por_autor(livro, autor):
+def listar_por_autor(livro):
+    busca_autor = input("Autor:")
     for id, valor in livro.items():
-        if valor.getAutor() == autor:
+        if valor.getAutor() == busca_autor:
             print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
 def listar_emprestados(livro):

@@ -1,5 +1,6 @@
 class Livro:
     def __init__(self,id, titulo, autor, genero, situacao="Disponível"):
+        self.id = id
         self.__titulo = titulo
         self.__autor = autor
         self.__genero = genero
@@ -17,6 +18,9 @@ class Livro:
 
     def getSituacao(self):
         return self.__situacao
+    
+    def getId(self):
+        return self.__id
 
     # 
     def setTitulo(self, titulo):
