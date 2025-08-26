@@ -27,15 +27,21 @@ livro[20] = Livro(id = 21,titulo="A Mão Esquerda da Escuridão", autor="Ursula 
 livro[21]= Livro(id = 22,titulo="Os Despossuídos", autor="Ursula K. Le Guin", genero="Ficção", situacao="disponível")
 livro[22]= Livro(id = 23,titulo="O Conto da Aia", autor="Margaret Atwood", genero="Distopia", situacao="disponível")
 livro[23]= Livro(id = 24,titulo="A Roda do Tempo", autor="Robert Jordan", genero="Fantasia", situacao="disponível")
-livro[24] = Livroid = 25,titulo="Mistborn", autor="Brandon Sanderson", genero="Fantasia", situacao="disponível")
+livro[24] = Livro(id = 25,titulo="Mistborn", autor="Brandon Sanderson", genero="Fantasia", situacao="disponível")
 
 
 def emprestar(livro):
-    emprestimo = int(input("Selecione o livro que você quer emprestar:\n\n"))
-    for id, valor in livro.items():
-        (print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}'))
+    print(10*"-""Empréstimo de livro""-"*10)
+    busca = int(input("Como deseja buscar?\n1-Por Genêro textual\n2-Autor\3-Todos os livros"))
+    if busca == 1: 
+        listar_por_genero()
+    if busca == 2:
+        listar_por_autor()
+    if busca == 3:
+        listar_todos_livros()
+    empréstimo = int(input("Digite o Id do livro que você deseja emprestar\n----->"))
+    livro[empréstimo] = livro[empréstimo].setSituacao(Situacao='Emprestado')
 
-    livro_emprestado = emprestimo
 
 def menu_listar(livro):
     print("Selecione uma opção de listagem:")
@@ -57,7 +63,7 @@ def menu_listar(livro):
         listar_emprestados(livro)
     elif opcao == 0:
         return
-    else
+    else:
         print("Opção invalida")
 
 def listar_todos_livros(livro):
@@ -98,8 +104,7 @@ def adicionar_livro(livro):
     print("1- Adicionar livro")
     print("0- Voltar ao menu principal")
     opcao = int(input("Opção: "))
-    if opcao == 1:
-        id = int(input("ID do livro: "))
+    if opcao == 1:        id = int(input("ID do livro: "))
         titulo = input("Título do livro: ")
         autor = input("Autor do livro: ")
         genero = input("Gênero do livro: ")
