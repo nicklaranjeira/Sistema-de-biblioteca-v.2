@@ -37,6 +37,26 @@ def emprestar(livro):
 
     livro_emprestado = emprestimo
 
+def menu_listar(livro):
+    print("Selecione uma opção de listagem:")
+    print("1 - Listar todos os livros")
+    print("2 - Listar livros por gênero")
+    print("3 - Listar livros por autor")
+    print("4 - Listar livros emprestados")
+    print("0 - Voltar ao menu principal")
+    opcao = int(input("Opção: "))
+    if opcao == 1:
+        listar_todos_livros(livro)
+    elif opcao == 2:
+        genero = input("Digite o gênero: ")
+        listar_por_genero(livro, genero)
+    elif opcao == 3:
+        autor = input("Digite o autor: ")
+        listar_por_autor(livro, autor)
+    elif opcao == 4:
+        listar_emprestados(livro)
+    elif opcao == 0:
+        return
 
 def listar_todos_livros(livro):
     for id, valor in livro.items():
