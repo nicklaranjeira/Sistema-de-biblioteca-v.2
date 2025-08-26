@@ -36,3 +36,23 @@ def emprestar(livro):
         (print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}'))
 
     livro_emprestado = emprestimo
+
+
+def listar_todos_livros(livro):
+    for id, valor in livro.items():
+        print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
+
+def listar_por_genero(livro, genero):
+    for id, valor in livro.items():
+        if valor.getGenero() == genero:
+            print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
+
+def listar_por_autor(livro, autor):
+    for id, valor in livro.items():
+        if valor.getAutor() == autor:
+            print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
+
+def listar_emprestados(livro):
+    for id, valor in livro.items():
+        if valor.getSituacao() == "emprestado":
+            print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
