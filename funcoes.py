@@ -57,6 +57,8 @@ def menu_listar(livro):
         listar_emprestados(livro)
     elif opcao == 0:
         return
+    else
+        print("Opção invalida")
 
 def listar_todos_livros(livro):
     for id, valor in livro.items():
@@ -76,3 +78,17 @@ def listar_emprestados(livro):
     for id, valor in livro.items():
         if valor.getSituacao() == "emprestado":
             print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
+
+def remover_livro(livro,id):
+    print("Selecione uma opção: ")
+    print("1- Apagar livro")
+    print("0- Voltar ao menu principal")
+    opcao = int(input("Opção: "))
+    if opcao == 1:
+        listar_todos_livros(livro)
+        id = int(input("Qual o id do livro que você deseja remover?"))
+        livro.pop(id, None)
+    elif opcao == 0:
+        return
+    else:
+        print("Opção inválida.")
