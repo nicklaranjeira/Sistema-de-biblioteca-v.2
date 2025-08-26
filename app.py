@@ -1,2 +1,2 @@
 from funcoes import *
-listagem()
+#listagem()
