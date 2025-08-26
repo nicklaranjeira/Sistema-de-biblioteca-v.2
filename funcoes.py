@@ -1,29 +1,26 @@
 from classes import *
-livros = [
-    ("Dom Casmurro", "Machado de Assis", "Romance"),
-    ("Memórias Póstumas de Brás Cubas", "Machado de Assis", "Romance"),
-    ("Vidas Secas", "Graciliano Ramos", "Drama"),
-    ("Grande Sertão: Veredas", "Guimarães Rosa", "Romance"),
-    ("O Cortiço", "Aluísio Azevedo", "Romance"),
-    ("A Hora da Estrela", "Clarice Lispector", "Ficção"),
-    ("Macunaíma", "Mário de Andrade", "Modernismo"),
-    ("Iracema", "José de Alencar", "Romance"),
-    ("Senhora", "José de Alencar", "Romance"),
-    ("O Guarani", "José de Alencar", "Romance"),
-    ("O Ateneu", "Raul Pompeia", "Romance"),
-    ("Os Maias", "Eça de Queirós", "Romance"),
-    ("O Primo Basílio", "Eça de Queirós", "Romance"),
-    ("Dom Quixote", "Miguel de Cervantes", "Clássico"),
-    ("1984", "George Orwell", "Distopia"),
-    ("Admirável Mundo Novo", "Aldous Huxley", "Distopia"),
-    ("Fahrenheit 451", "Ray Bradbury", "Distopia"),
-    ("O Senhor dos Anéis", "J.R.R. Tolkien", "Fantasia"),
-    ("O Hobbit", "J.R.R. Tolkien", "Fantasia"),
-    ("Harry Potter e a Pedra Filosofal", "J.K. Rowling", "Fantasia"),
-    ("Orgulho e Preconceito", "Jane Austen", "Romance"),
-    ("Drácula", "Bram Stoker", "Terror"),
-    ("Frankenstein", "Mary Shelley", "Terror"),
-    ("A Moreninha", "Joaquim Manuel de Macedo", "Romance"),
-    ("Capitães da Areia", "Jorge Amado", "Drama")
-]
-livros = [Livro(titulo, autor, genero) for titulo, autor, genero in livros]
+livro1  = Livro(titulo="1984", autor="George Orwell", genero="Distopia", situacao="disponível")
+livro2  = Livro(titulo="Admirável Mundo Novo", autor="Aldous Huxley", genero="Distopia", situacao="disponível")
+livro3  = Livro(titulo="Fahrenheit 451", autor="Ray Bradbury", genero="Distopia", situacao="disponível")
+livro4  = Livro(titulo="Jogos Vorazes", autor="Suzanne Collins", genero="Distopia", situacao="disponível")
+livro5  = Livro(titulo="Laranja Mecânica", autor="Anthony Burgess", genero="Distopia", situacao="disponível")
+livro6  = Livro(titulo="O Hobbit", autor="J.R.R. Tolkien", genero="Fantasia", situacao="disponível")
+livro7  = Livro(titulo="O Senhor dos Anéis", autor="J.R.R. Tolkien", genero="Fantasia", situacao="disponível")
+livro8  = Livro(titulo="As Crônicas de Nárnia", autor="C.S. Lewis", genero="Fantasia", situacao="disponível")
+livro9  = Livro(titulo="Harry Potter e a Pedra Filosofal", autor="J.K. Rowling", genero="Fantasia", situacao="disponível")
+livro10 = Livro(titulo="Percy Jackson e o Ladrão de Raios", autor="Rick Riordan", genero="Fantasia", situacao="disponível")
+livro11 = Livro(titulo="Fundação", autor="Isaac Asimov", genero="Ficção", situacao="disponível")
+livro12 = Livro(titulo="Eu, Robô", autor="Isaac Asimov", genero="Ficção", situacao="disponível")
+livro13 = Livro(titulo="Neuromancer", autor="William Gibson", genero="Ficção", situacao="disponível")
+livro14 = Livro(titulo="Duna", autor="Frank Herbert", genero="Ficção", situacao="disponível")
+livro15 = Livro(titulo="Frankenstein", autor="Mary Shelley", genero="Ficção", situacao="disponível")
+livro16 = Livro(titulo="A Revolução dos Bichos", autor="George Orwell", genero="Distopia", situacao="disponível")
+livro17 = Livro(titulo="A Máquina do Tempo", autor="H.G. Wells", genero="Ficção", situacao="disponível")
+livro18 = Livro(titulo="Guerra dos Mundos", autor="H.G. Wells", genero="Ficção", situacao="disponível")
+livro19 = Livro(titulo="A Canção de Gelo e Fogo", autor="George R.R. Martin", genero="Fantasia", situacao="disponível")
+livro20 = Livro(titulo="O Nome do Vento", autor="Patrick Rothfuss", genero="Fantasia", situacao="disponível")
+livro21 = Livro(titulo="A Mão Esquerda da Escuridão", autor="Ursula K. Le Guin", genero="Ficção", situacao="disponível")
+livro22 = Livro(titulo="Os Despossuídos", autor="Ursula K. Le Guin", genero="Ficção", situacao="disponível")
+livro23 = Livro(titulo="O Conto da Aia", autor="Margaret Atwood", genero="Distopia", situacao="disponível")
+livro24 = Livro(titulo="A Roda do Tempo", autor="Robert Jordan", genero="Fantasia", situacao="disponível")
+livro25 = Livro(titulo="Mistborn", autor="Brandon Sanderson", genero="Fantasia", situacao="disponível")
