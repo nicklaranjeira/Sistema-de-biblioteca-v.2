@@ -131,7 +131,28 @@ def adicionar_livro(livro):
         print("Opção inválida.")
 
 def editar_livro(livro):
-    pass
+    print("Livros da biblioteca:")
+    print(listar_todos_livros(livro))
+    print("Digite o Id do livro que você deseja atualizar:")
+    escolha = int(input("\n->"))
+    print("O que você deseja atualizar?\n1. Título \n2. Autor \n3. Gênero \n4. Situação")
+    atualizar= int(input("\n->"))
+    if atualizar == 1:
+        novo_titulo = input("Digite o novo título:")
+        livro[escolha].setTitulo(novo_titulo)
+    elif atualizar == 2:
+        novo_autor = input("Digite o novo autor:")
+        livro[escolha].setAutor(novo_autor)
+    elif atualizar == 3:
+        novo_genero = input("Digite o novo gênero:")
+        livro[escolha].setGenero(novo_genero)
+    elif atualizar == 4:
+        nova_situacao = input("Digite a nova situação:")
+        livro[escolha].setSituacao(nova_situacao)
+    else:
+        print ("Opção invalida, tente novamente")
+        os.system("pause")
+
 
 def menu_principal():
     while True:
@@ -169,3 +190,6 @@ def menu_principal():
         else:
             print("Opção inválida.")
             continue
+
+
+    
