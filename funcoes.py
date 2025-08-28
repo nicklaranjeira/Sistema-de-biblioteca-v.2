@@ -109,36 +109,24 @@ def listar_emprestados(livro):
             print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
 def remover_livro(livro,id):
-    print("Selecione uma opção: ")
-    print("1- Apagar livro")
-    print("0- Voltar ao menu principal")
-    opcao = int(input("Opção: "))
-    if opcao == 1:
-        listar_todos_livros(livro)
-        id = int(input("Qual o id do livro que você deseja remover?"))
-        livro.pop(id, None)
-    elif opcao == 0:
-        return
-    else:
-        print("Opção inválida.")
+    print("Remover um livro do sistema: ")
+    listar_todos_livros(livro)
+    id = int(input("Qual o id do livro que você deseja remover?"))
+    livro.pop(id)
+    os.system("cls")
+    print("Livro removido!")
+    back_menu()
 
 def adicionar_livro(livro):
-    print("Selecione uma opção: ")
-    print("1- Adicionar livro")
-    print("0- Voltar ao menu principal")
-    opcao = int(input("Opção: "))
-    if opcao == 1:       
-        id = len(livro)+1
-        titulo = input("Título do livro: ")
-        autor = input("Autor do livro: ")
-        genero = input("Gênero do livro: ")
-        situacao = "disponível"
-        livro[id] = Livro(id, titulo, autor, genero, situacao)
-        print("Livro adicionado com sucesso.")
-    elif opcao == 0:
-        return
-    else:
-        print("Opção inválida.")
+    print("Adicionar um livro:\n")
+    id = len(livro)+1
+    titulo = input("Título do livro: ")
+    autor = input("Autor do livro: ")
+    genero = input("Gênero do livro: ")
+    situacao = "disponível"
+    livro[id] = Livro(id, titulo, autor, genero, situacao)
+    print("Livro adicionado com sucesso.\n")
+    back_menu()
 
 def editar_livro(livro):
     print("Livros da biblioteca:")
@@ -166,7 +154,7 @@ def editar_livro(livro):
 def devolver():
     print('Devolução de livro:\n')
     id_devolucao = int(input("Digite aqui o id do livro que deseja devolver\n----->"))
-    livro[id_devolucao].setSituacao(situacao='Disponivel')
+    livro[id_devolucao].setSituacao(situacao='disponivel')
     emprestados.pop(id_devolucao)
     print("Livro devolvido com sucesso!")
     back_menu()
