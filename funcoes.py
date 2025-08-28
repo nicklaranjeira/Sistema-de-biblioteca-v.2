@@ -1,6 +1,7 @@
 from classes import *
 import os
 livro = {}
+emprestados = []
 livro[0]  = Livro(id = 1, titulo="1984", autor="George Orwell", genero="Distopia", situacao="disponível")
 livro[1]  = Livro(id = 2,titulo="Admirável Mundo Novo", autor="Aldous Huxley", genero="Distopia", situacao="disponível")
 livro[2]  = Livro(id = 3,titulo="Fahrenheit 451", autor="Ray Bradbury", genero="Distopia", situacao="disponível")
@@ -45,14 +46,9 @@ def emprestar(livro):
         listar_todos_livros(livro)
     empréstimo = int(input("\nDigite o Id do livro que você deseja emprestar\n----->"))
     livro[empréstimo] = livro[empréstimo].setSituacao(situacao='Emprestado')
+    emprestados.append(livro[empréstimo])
     print("\nLivro emprestado com sucesso!\nPrazo máximo para devolução: 30 dias")
-    back_menu = int(input("\nPressione 1 para voltar ao menu e 0 para sair do sistema\n---->"))
-    if back_menu == 1:
-        menu_principal()
-    if back_menu == 2:
-        print("Saindo...")
-        os.system("cls")
-        os.system('pause')
+    back_menu()
         
 
 
@@ -65,38 +61,47 @@ def menu_listar(livro): # problema
     print("0 - Voltar ao menu principal")
     opcao = int(input("Opção: "))
     if opcao == 1:
+        os.system("cls")
         listar_todos_livros(livro)
+        back_menu()
     elif opcao == 2:
+        os.system("cls")
         listar_por_genero(livro)
+        back_menu()
     elif opcao == 3:
+        os.system("cls")
         listar_por_autor(livro)
+        back_menu()
     elif opcao == 4:
+        os.system("cls")
         listar_emprestados(livro)
+        back_menu()
     elif opcao == 0:
+        os.system("cls")
         menu_principal()
     else:
         print("Opção invalida")
 
 def listar_todos_livros(livro):
     for id, valor in livro.items():
-        print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
+        print(f'{id+1} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
 def listar_por_genero(livro):
     busca_genero = input("Digite o genêro da pesquisa: \n1-Distopia \n2-Fantasia \n3-Ficção\n----->")
     for id, valor in livro.items():
         if valor.getGenero() == busca_genero:
-            print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
+            print(f'{id+1} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
 def listar_por_autor(livro):
     busca_autor = input("Autor:")
     for id, valor in livro.items():
         if valor.getAutor() == busca_autor:
-            print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
+            print(f'{id+1} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
 def listar_emprestados(livro):
     for id, valor in livro.items():
         if valor.getSituacao() == "emprestado":
-            print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
+            print(f'{id+1} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
 def remover_livro(livro,id):
     print("Selecione uma opção: ")
@@ -153,10 +158,22 @@ def editar_livro(livro):
         print ("Opção invalida, tente novamente")
         os.system("pause")
 
+def devolver():
+    print('Devolução de livro:\n')
+    id_devolucao = int(input("Digite aqui o id do livro que deseja devolver\n----->"))
+    livro[id_devolucao] = livro[id_devolucao].setSituacao(situacao='Disponivel')
+    emprestados.pop(livro[id_devolucao])
+    print("Livro devolvido com sucesso!")
+    back_menu()
+
+def con_emprestados():
+    print("Consulta de livros emprestados\n: ")
+    for i in range(len(emprestados)):
+        print(f'{i+1} {emprestados[i]}')
 
 def menu_principal():
     while True:
-        print("Bem-vindo ao sistema de biblioteca!")
+        print("BEM VINDO AO SISTEMA DA BIBLIOTECA\n")
         print("Selecione a opção que deseja:")
         print("1 - Listar livros")
         print("2 - Adicionar livro")
@@ -164,6 +181,7 @@ def menu_principal():
         print("4 - Editar livro")
         print("5 - Emprestar livro")
         print("6 - Devolver livro")
+        print("7-  Consultar livros emprestados")
         print("0 - Sair")
         opcao = int(input("Opção: "))
 
@@ -182,6 +200,12 @@ def menu_principal():
         elif opcao == 5:
             os.system('cls')
             emprestar(livro)
+        elif opcao ==6:
+            os.system("cls")
+            devolver()
+        elif opcao ==7:
+            os.system('cls')
+            con_emprestados()
         elif opcao == 0:
             os.system('cls')
             print("Saindo...")
@@ -191,5 +215,11 @@ def menu_principal():
             print("Opção inválida.")
             continue
 
-
-    
+def back_menu():
+    back_menu = int(input("\nPressione 1 para voltar ao menu e 0 para sair do sistema\n---->"))
+    if back_menu == 1:
+        menu_principal()
+    if back_menu == 2:
+        print("Saindo...")
+        os.system("cls")
+        os.system('pause')
