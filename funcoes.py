@@ -44,11 +44,12 @@ def emprestar(livro):
         if busca == 3:
             os.system('cls')
             listar_todos_livros(livro)
-
+        else:
+            print("Opção inválida.")
+            emprestar()
         empréstimo = int(input("\nDigite o Id do livro que você deseja emprestar:\n----->"))
-        
 
-        if empréstimo not in livro:
+        if empréstimo not in livro: # not in: operador de associação serve apenas para sequências, listas ou dicts
             os.system("cls")
             print("Esse id não corresponde a nenhum item da lista!\n")
             emprestar(livro)
@@ -78,25 +79,26 @@ def menu_listar(livro):
     if opcao == 1:
         os.system("cls")
         listar_todos_livros(livro)
-        back_menu()
+        #back_menu()
     elif opcao == 2:
         os.system("cls")
         listar_por_genero(livro)
-        back_menu()
+        #back_menu()
     elif opcao == 3:
         os.system("cls")
         listar_por_autor(livro)
-        back_menu()
+        #back_menu()
     elif opcao == 4:
         os.system("cls")
         listar_emprestados(livro)
-        back_menu()
+        #back_menu()
     elif opcao == 0:
         os.system("cls")
         menu_principal()
     else:
         print("Opção inválida")
         menu_listar()
+    back_menu()
 
 def listar_todos_livros(livro):
     for id, valor in livro.items():
@@ -119,13 +121,17 @@ def listar_emprestados(livro):
         if valor.getSituacao() == "Emprestado":
             print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
-def remover_livro(livro,id):
+def remover_livro(livro):
     print("Remover um livro do sistema: ")
     listar_todos_livros(livro)
-    id = int(input("Qual o id do livro que você deseja remover?"))
-    livro.pop(id)
-    os.system("cls")
-    print("Livro removido!")
+    id = int(input("\nQual o id do livro que você deseja remover?"))
+    if id not in livro:
+        print("Você digitou o id errado! Digite novamente")
+        remover_livro(livro)
+    else:
+        os.system("cls")
+        print(f"Livro {livro[id].getTitulo()} removido!")
+        livro.pop(id)
     back_menu()
 
 def adicionar_livro(livro):
@@ -136,7 +142,8 @@ def adicionar_livro(livro):
     genero = input("Gênero do livro: ")
     situacao = "disponível"
     livro[id] = Livro(id, titulo, autor, genero, situacao)
-    print("Livro adicionado com sucesso.\n")
+    os.system('cls')
+    print(f"Livro {livro[id].getTitulo()} - {livro[id].getAutor()} - {livro[id].getGenero()} adicionado com sucesso.\n")
     back_menu()
 
 def editar_livro(livro):
@@ -144,46 +151,53 @@ def editar_livro(livro):
     listar_todos_livros(livro)
     print("\nDigite o Id do livro que você deseja atualizar:")
     escolha = int(input("\n->"))
+    if escolha not in livro:
+        os.system('cls')
+        print("Você digitou o id errado! Tente novamente")
+        editar_livro(livro)
     print("O que você deseja atualizar?\n1. Título \n2. Autor \n3. Gênero \n4. Situação")
     atualizar= int(input("\n->"))
     if atualizar == 1:
-        novo_titulo = input("Digite o novo título:").capitalize()
-        livro[escolha].setTitulo(novo_titulo)
-        os.system('cls')
-        print(f"Título alterado para: {livro[escolha].getTitulo()}.")
-        back_menu()
-    elif atualizar == 2:
-        novo_autor = input("Digite o novo autor:").capitalize()
-        livro[escolha].setAutor(novo_autor)
-        os.system('cls')
-        print(f"Autor do livro {livro[escolha].getTitulo()} alterado para {livro[escolha].getAutor()}.")
-        back_menu()
-    elif atualizar == 3:
-        novo_genero = input("Digite o novo gênero:").capitalize()
-        livro[escolha].setGenero(novo_genero)
-        os.system('cls')
-        print(f"Genêro do livro {livro[escolha].getTitulo()} alterado para {livro[escolha].getGenero()}. ")
-        back_menu()
-    elif atualizar == 4:
-        nova_situacao = input("Digite a nova situação:").capitalize()
-        livro[escolha].setSituacao(nova_situacao)
-        if nova_situacao == "Emprestado":
-            livro[escolha].setSituacao(situacao="Emprestado")
-            #emprestados[escolha] = livro[escolha]
+            novo_titulo = input("Digite o novo título:").capitalize()
+            livro[escolha].setTitulo(novo_titulo)
             os.system('cls')
-            print(f"Situação do livro {livro[escolha].getTitulo()} atualizada para {livro[escolha].getSituacao()}!")
+            print(f"Título alterado para: {livro[escolha].getTitulo()}.")
             back_menu()
+    elif atualizar == 2:
+            novo_autor = input("Digite o novo autor:").capitalize()
+            livro[escolha].setAutor(novo_autor)
+            os.system('cls')
+            print(f"Autor do livro {livro[escolha].getTitulo()} alterado para {livro[escolha].getAutor()}.")
+            back_menu()
+    elif atualizar == 3:
+            novo_genero = input("Digite o novo gênero:").capitalize()
+            livro[escolha].setGenero(novo_genero)
+            os.system('cls')
+            print(f"Genêro do livro {livro[escolha].getTitulo()} alterado para {livro[escolha].getGenero()}. ")
+            back_menu()
+    elif atualizar == 4:
+            nova_situacao = input("Digite a nova situação:").capitalize()
+            livro[escolha].setSituacao(nova_situacao)
+            if nova_situacao == "Emprestado":
+                livro[escolha].setSituacao(situacao="Emprestado")
+                #emprestados[escolha] = livro[escolha]
+                os.system('cls')
+                print(f"Situação do livro {livro[escolha].getTitulo()} atualizada para {livro[escolha].getSituacao()}!")
+                back_menu()
     else:
-        print ("Opção inválida, tente novamente")
-        os.system("pause")
+        print ("Opção inválida, tente novamente\n")
+        editar_livro()
     back_menu()
 
-def devolver(): # ta saindo errado
+def devolver():
     print('Devolução de livro:\n')
     id_devolucao = int(input("Digite aqui o id do livro que deseja devolver\n----->"))
 
     if livro[id_devolucao].getSituacao() == "disponível":
         print("Você digitou o Id errado, tente novamente!")
+        devolver()
+    elif id_devolucao not in livro:
+        print("Você digitou um id inexistente! Tente novamente")
         devolver()
 
     elif livro[id_devolucao].getSituacao() == "Emprestado":
@@ -211,7 +225,7 @@ def menu_principal():
         print("6 - Devolver livro")
         #print("7 - Consultar livros emprestados")
         print("0 - Sair")
-        opcao = int(input("Opção: "))
+        opcao = int(input("\nOpção: "))
 
         if opcao == 1:
             os.system('cls')
@@ -221,7 +235,7 @@ def menu_principal():
             adicionar_livro(livro)
         elif opcao == 3:
             os.system('cls')
-            remover_livro(livro, None)  
+            remover_livro(livro)  
         elif opcao == 4:
             os.system('cls')
             editar_livro(livro)
