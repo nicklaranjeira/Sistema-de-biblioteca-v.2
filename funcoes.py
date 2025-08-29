@@ -33,27 +33,35 @@ livro[24+1] = Livro(id = 25,titulo="Mistborn", autor="Brandon Sanderson", genero
 
 
 def emprestar(livro):
-    print("--------Empréstimo de livro---------")
-    busca = int(input("\nComo deseja buscar?\n1-Por Genêro textual \n2-Autor \n3-Todos os livros"))
-    if busca == 1: 
-        os.system('cls')
-        listar_por_genero(livro)
-    if busca == 2:
-        os.system('cls')
-        listar_por_autor(livro)
-    if busca == 3:
-        os.system('cls')
-        listar_todos_livros(livro)
-    empréstimo = int(input("\nDigite o Id do livro que você deseja emprestar:\n----->"))
-    if livro[empréstimo].getSituacao() == 'Emprestado':
-        os.system("cls")
-        print("Este livro já esta emprestado! Escolha outra obra.\n\n\n")
-        emprestar(livro)
-    if livro[empréstimo].getSituacao() == "disponível":
-       livro[empréstimo].setSituacao(situacao='Emprestado')
-       emprestados[empréstimo] = livro[empréstimo]
-       print(f"\nLivro {livro[empréstimo].getTitulo()} emprestado com sucesso!\nPrazo máximo para devolução: 30 dias")
-    back_menu()
+    while True:
+        print("--------Empréstimo de livro---------")
+        busca = int(input("\nComo deseja buscar?\n1-Por Genêro textual \n2-Autor \n3-Todos os livros\n----->"))
+        if busca == 1: 
+            os.system('cls')
+            listar_por_genero(livro)
+        if busca == 2:
+            os.system('cls')
+            listar_por_autor(livro)
+        if busca == 3:
+            os.system('cls')
+            listar_todos_livros(livro)
+
+        empréstimo = int(input("\nDigite o Id do livro que você deseja emprestar:\n----->"))
+        
+        if empréstimo not in livro:
+            os.system("cls")
+            print("Esse id não corresponde a nenhum item da lista!\n")
+            emprestar(livro)
+
+        if livro[empréstimo].getSituacao() == 'Emprestado':
+            os.system("cls")
+            print("Este livro já esta emprestado! Escolha outra obra.\n\n\n")
+            emprestar(livro)
+        if livro[empréstimo].getSituacao() == "disponível":
+            livro[empréstimo].setSituacao(situacao='Emprestado')
+            emprestados[empréstimo] = livro[empréstimo]
+            print(f"\nLivro {livro[empréstimo].getTitulo()} emprestado com sucesso!\nPrazo máximo para devolução: 30 dias")
+        back_menu()
         
 
 
