@@ -162,19 +162,19 @@ def editar_livro(livro):
             livro[escolha].setTitulo(novo_titulo)
             os.system('cls')
             print(f"Título alterado para: {livro[escolha].getTitulo()}.")
-            back_menu()
+            #back_menu()
     elif atualizar == 2:
             novo_autor = input("Digite o novo autor:").capitalize()
             livro[escolha].setAutor(novo_autor)
             os.system('cls')
             print(f"Autor do livro {livro[escolha].getTitulo()} alterado para {livro[escolha].getAutor()}.")
-            back_menu()
+            #back_menu()
     elif atualizar == 3:
             novo_genero = input("Digite o novo gênero:").capitalize()
             livro[escolha].setGenero(novo_genero)
             os.system('cls')
             print(f"Genêro do livro {livro[escolha].getTitulo()} alterado para {livro[escolha].getGenero()}. ")
-            back_menu()
+            #back_menu()
     elif atualizar == 4:
             nova_situacao = input("Digite a nova situação:").capitalize()
             livro[escolha].setSituacao(nova_situacao)
@@ -183,7 +183,7 @@ def editar_livro(livro):
                 #emprestados[escolha] = livro[escolha]
                 os.system('cls')
                 print(f"Situação do livro {livro[escolha].getTitulo()} atualizada para {livro[escolha].getSituacao()}!")
-                back_menu()
+                #back_menu()
     else:
         print ("Opção inválida, tente novamente\n")
         editar_livro()
