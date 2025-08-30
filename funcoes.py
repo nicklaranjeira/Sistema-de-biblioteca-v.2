@@ -31,15 +31,8 @@ livro[22+1]= Livro(id = 23,titulo="O Conto da Aia", autor="Margaret Atwood", gen
 livro[23+1]= Livro(id = 24,titulo="A Roda do Tempo", autor="Robert Jordan", genero="Fantasia", situacao="disponível")
 livro[24+1] = Livro(id = 25,titulo="Mistborn", autor="Brandon Sanderson", genero="Fantasia", situacao="disponível")
 
-def tipo_user():
-    print("Escolha:\n1-Bibliotecário\n2-Usuário")
-    user = int(input("---->"))
-    if user == 1:
-        menu_bibliotecario()
-    if user == 2:
-        menu_user()
-    user = tipo_user()
-    return user
+
+
 
 def emprestar(livro):
         print("-------- Empréstimo de livro ---------")
@@ -47,15 +40,16 @@ def emprestar(livro):
         if busca == 1: 
             os.system('cls')
             listar_por_genero(livro)
-        if busca == 2:
+        elif busca == 2:
             os.system('cls')
             listar_por_autor(livro)
-        if busca == 3:
+        elif busca == 3:
             os.system('cls')
             listar_todos_livros(livro)
         else:
             print("Opção inválida.")
-            emprestar()
+            emprestar(livro)
+
         empréstimo = int(input("\nDigite o Id do livro que você deseja emprestar:\n----->"))
 
         if empréstimo not in livro: # not in: operador de associação serve apenas para sequências, listas ou dicts
@@ -76,8 +70,7 @@ def emprestar(livro):
         back_menu_user()
         
 
-
-def menu_listar(livro,user): 
+def menu_listar_bi(livro): 
     print("Selecione uma opção de listagem:")
     print("1 - Listar todos os livros") 
     print("2 - Listar livros por gênero")
@@ -102,12 +95,37 @@ def menu_listar(livro,user):
         #back_menu()
     else:
         print("Opção inválida")
-        menu_listar()
+        menu_listar_bi()
+    back_menu_bibliotecario()
 
-    if user == 1:
-        back_menu_bibliotecario() 
-    if user == 2:
-        back_menu_user()
+def menu_listar_us(livro): 
+    print("Selecione uma opção de listagem:")
+    print("1 - Listar todos os livros") 
+    print("2 - Listar livros por gênero")
+    print("3 - Listar livros por autor")
+    print("4 - Listar livros emprestados")
+    opcao = int(input("Opção: "))
+    if opcao == 1:
+        os.system("cls")
+        listar_todos_livros(livro)
+        #back_menu()
+    elif opcao == 2:
+        os.system("cls")
+        listar_por_genero(livro)
+        #back_menu()
+    elif opcao == 3:
+        os.system("cls")
+        listar_por_autor(livro)
+        #back_menu()
+    elif opcao == 4:
+        os.system("cls")
+        listar_emprestados(livro)
+        #back_menu()
+    else:
+        print("Opção inválida")
+        menu_listar_us()
+    back_menu_user()
+
 
 def listar_todos_livros(livro):
     for id, valor in livro.items():
@@ -216,12 +234,6 @@ def devolver():
          print(f"Livro {livro[id_devolucao].getTitulo()} devolvido!")
     back_menu_user()
 
-#def con_emprestados():
- #   print("Consulta de livros emprestados:\n ")
-  #  for id, valor in emprestados.items():
-   #     print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
-    #back_menu()
-
 def menu_user():
     while True:
         print("BEM VINDO AO SISTEMA DA BIBLIOTECA\n")
@@ -234,10 +246,10 @@ def menu_user():
 
         if opcao == 1:
             os.system('cls')
-            menu_listar(livro)
+            menu_listar_us(livro)
         elif opcao == 2:
             os.system('cls')
-            emprestar()
+            emprestar(livro)
         elif opcao == 3:
             os.system('cls')
             devolver()  
@@ -264,7 +276,7 @@ def menu_bibliotecario():
 
         if opcao == 1:
             os.system('cls')
-            menu_listar(livro)
+            menu_listar_bi(livro)
         elif opcao == 2:
             os.system('cls')
             adicionar_livro(livro)
@@ -294,6 +306,7 @@ def back_menu_user():
             print("Saindo...")
             os.system("cls")
             os.system('pause')
+            break
         else:
             os.system('cls')
             print("Opção inválida")
@@ -309,7 +322,10 @@ def back_menu_bibliotecario():
             print("Saindo...")
             os.system("cls")
             os.system('pause')
+            break
         else:
             os.system('cls')
             print("Opção inválida")
             back_menu_bibliotecario()
+
+    
