@@ -125,14 +125,14 @@ def listar_todos_livros(livro):
         print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
 def listar_por_genero(livro):
-    busca_genero = input("DIGITE o genêro da pesquisa: \n1-Distopia \n2-Fantasia \n3-Ficção\n----->")
+    busca_genero = input("DIGITE o genêro da pesquisa: \n1-Distopia \n2-Fantasia \n3-Ficção\n----->").capitalize()
     os.system('cls')
     for id, valor in livro.items():
         if valor.getGenero() == busca_genero:
             print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
 def listar_por_autor(livro):
-    busca_autor = input("Autor:")
+    busca_autor = input("Autor:").capitalize()
     os.system('cls')
     for id, valor in livro.items():
         if valor.getAutor() == busca_autor:
@@ -160,9 +160,9 @@ def remover_livro(livro):
 def adicionar_livro(livro):
     print("Adicionar um livro:\n")
     id = len(livro)+1
-    titulo = input("Título do livro: ")
-    autor = input("Autor do livro: ")
-    genero = input("Gênero do livro: ")
+    titulo = input("Título do livro: ").capitalize()
+    autor = input("Autor do livro: ").capitalize()
+    genero = input("Gênero do livro: ").capitalize()
     situacao = "disponível"
     livro[id] = Livro(id, titulo, autor, genero, situacao)
     os.system('cls')
@@ -220,8 +220,13 @@ def devolver():
 
     if livro[id_devolucao].getSituacao() == "disponível":
         os.system("cls")
-        print("Você digitou o Id errado, tente novamente!")
-        devolver()
+        print("Você digitou o Id errado, tente novamente!\n")
+        sair = int(input("Deseja retornar ao menu?\n1-Sim\n2-Não\n---> "))
+        if sair == 1:
+            back_menu_user()
+        if sair == 2:
+            os.system('cls')
+            devolver()
     elif id_devolucao not in livro:
         os.system("cls")
         print("Você digitou um id inexistente! Tente novamente")
