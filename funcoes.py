@@ -64,7 +64,6 @@ def emprestar(livro): #função para emprestar os livros
 
         if livro[empréstimo].getSituacao() == "disponível": #se o livro com o ID informado estiver 'disponível', ele altera a situação usando SET
             livro[empréstimo].setSituacao(situacao='Emprestado')
-            #emprestados[empréstimo] = livro[empréstimo]
             os.system('cls')
             print(f"\nLivro {livro[empréstimo].getTitulo()} emprestado com sucesso!\nPrazo máximo para devolução: 30 dias") #retorna o nome do livro
         back_menu_user() #retorna ao menu do usuario 
@@ -149,7 +148,7 @@ def listar_emprestados(livro): #função de listar livros emprestados
 def remover_livro(livro): #função de remover livros
     print("Remover um livro do sistema: ")
     listar_todos_livros(livro) #lista todos os livros
-    id = int(input("\nQual o id do livro que você deseja remover?"))
+    id = int(input("\nQual o id do livro que você deseja remover?\n--->"))
     if id not in livro: #se o valor da variavel não for encontrado consta como errado, operador not in
         print("Você digitou o id errado! Digite novamente")
         remover_livro(livro) #retorna a função

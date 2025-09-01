@@ -1,3 +1,4 @@
+from funcoes import *
 while True: # loop principal do sistema
     print("Escolha:\n\n1-Bibliotecário\n2-Usuário\n0-Sair\n")
     user = int(input("---->")) # entrada do usuario
