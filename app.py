@@ -1,6 +1,6 @@
-import os
-from funcoes import *
-from classes import *
+import os #importa a biblioteca os 
+from funcoes import * #importa as funções 
+from classes import * #importa as classes 
 
 while True:
     print("Escolha:\n\n1-Bibliotecário\n2-Usuário\n0-Sair\n")

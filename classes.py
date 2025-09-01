@@ -1,4 +1,4 @@
-class Livro:
+class Livro: # metodo construtor, inicializa os atributos do livro
     def __init__(self,id, titulo, autor, genero, situacao="Disponível"):
         self.id = id
         self.__titulo = titulo
@@ -6,7 +6,7 @@ class Livro:
         self.__genero = genero
         self.__situacao = situacao
 
-    # 
+    # metodos get (acessar os dados)
     def getTitulo(self):
         return self.__titulo
 
@@ -22,7 +22,7 @@ class Livro:
     def getId(self):
         return self.__id
 
-    # 
+    # metodo set (altera os dados)
     def setTitulo(self, titulo):
         self.__titulo = titulo
         return titulo

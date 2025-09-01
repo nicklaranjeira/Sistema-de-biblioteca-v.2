@@ -1,6 +1,6 @@
-from classes import *
+from classes import * #importa as classes 
 import os
-livro = {}
+livro = {} #no dicionario a chave é o ID e o valor é um objeto da classe Livro.
 
 livro[0 +1]  = Livro(id = 1, titulo="1984", autor="George Orwell", genero="Distopia", situacao="disponível")
 livro[1 + 1]  = Livro(id = 2,titulo="Admirável Mundo Novo", autor="Aldous Huxley", genero="Distopia", situacao="disponível")
@@ -30,45 +30,47 @@ livro[21+1]= Livro(id = 22,titulo="Os Despossuídos", autor="Ursula K. Le Guin",
 livro[22+1]= Livro(id = 23,titulo="O Conto da Aia", autor="Margaret Atwood", genero="Distopia", situacao="disponível")
 livro[23+1]= Livro(id = 24,titulo="A Roda do Tempo", autor="Robert Jordan", genero="Fantasia", situacao="disponível")
 livro[24+1] = Livro(id = 25,titulo="Mistborn", autor="Brandon Sanderson", genero="Fantasia", situacao="disponível")
+# +1 para que o valor informado pelo usuario corresponda ao da biblioteca
 
-def emprestar(livro):
+
+def emprestar(livro): #função para emprestar os livros
         print("-------- Empréstimo de livro ---------")
         busca = int(input("\nComo deseja buscar?\n1-Por Genêro textual \n2-Autor \n3-Todos os livros\n----->"))
         if busca == 1: 
             os.system('cls')
-            listar_por_genero(livro)
+            listar_por_genero(livro) #chama a função listar_por_genero
         elif busca == 2:
             os.system('cls')
-            listar_por_autor(livro)
+            listar_por_autor(livro) #chama a função listar_por_autor
         elif busca == 3:
             os.system('cls')
-            listar_todos_livros(livro)
+            listar_todos_livros(livro) #chama a função listar_todos_livros
         else:
             os.system('cls')
             print("Opção inválida.")
-            emprestar(livro)
+            emprestar(livro) #chama a função emprestar, retorna ao inicio
 
-        empréstimo = int(input("\nDigite o Id do livro que você deseja emprestar:\n----->"))
+        empréstimo = int(input("\nDigite o Id do livro que você deseja emprestar:\n----->")) #solicita ID do livro para empréstimo
 
         if empréstimo not in livro: # not in: operador de associação serve apenas para sequências, listas ou dicts
             os.system("cls")
             print("Esse id não corresponde a nenhum item da lista!\n")
-            emprestar(livro)
+            emprestar(livro) #chama a função emprestar, retorna ao inicio
 
-        if livro[empréstimo].getSituacao() == 'Emprestado':
+        if livro[empréstimo].getSituacao() == 'Emprestado': #se o livro com o ID informado estiver 'Emprestado', retorna a função emprestar
             os.system("cls")
             print("Este livro já está emprestado! Escolha outra obra.\n\n\n")
             emprestar(livro)
 
-        if livro[empréstimo].getSituacao() == "disponível":
+        if livro[empréstimo].getSituacao() == "disponível": #se o livro com o ID informado estiver 'disponível', ele altera a situação usando SET
             livro[empréstimo].setSituacao(situacao='Emprestado')
             #emprestados[empréstimo] = livro[empréstimo]
             os.system('cls')
-            print(f"\nLivro {livro[empréstimo].getTitulo()} emprestado com sucesso!\nPrazo máximo para devolução: 30 dias")
-        back_menu_user()
+            print(f"\nLivro {livro[empréstimo].getTitulo()} emprestado com sucesso!\nPrazo máximo para devolução: 30 dias") #retorna o nome do livro
+        back_menu_user() #retorna ao menu do usuario 
         
 
-def menu_listar_bi(livro): 
+def menu_listar_bi(livro): #função de listagem do bibliotecario
     print("Selecione uma opção de listagem:")
     print("1 - Listar todos os livros") 
     print("2 - Listar livros por gênero")
@@ -77,23 +79,23 @@ def menu_listar_bi(livro):
     opcao = int(input("Opção: "))
     if opcao == 1:
         os.system("cls")
-        listar_todos_livros(livro)
+        listar_todos_livros(livro) #chama a função listar_todos_livros
     elif opcao == 2:
         os.system("cls")
-        listar_por_genero(livro)
+        listar_por_genero(livro) #chama a função listar_por_genero
     elif opcao == 3:
         os.system("cls")
-        listar_por_autor(livro)
+        listar_por_autor(livro) #chama a função listar_por_autor
     elif opcao == 4:
         os.system("cls")
-        listar_emprestados(livro)
+        listar_emprestados(livro) #chama a função listar_emprestados
     else:
         os.system('cls')
         print("Opção inválida")
-        menu_listar_bi()
-    back_menu_bibliotecario()
+        menu_listar_bi() #retorna a função listar do bibliotecaro
+    back_menu_bibliotecario() #retorna a função menu do bibliotecario
 
-def menu_listar_us(livro): 
+def menu_listar_us(livro): #função de listar livros para o usuario 
     print("Selecione uma opção de listagem:")
     print("1 - Listar todos os livros") 
     print("2 - Listar livros por gênero")
@@ -102,72 +104,72 @@ def menu_listar_us(livro):
     opcao = int(input("Opção: "))
     if opcao == 1:
         os.system("cls")
-        listar_todos_livros(livro)
+        listar_todos_livros(livro) #chama a função listar_todos_livros
     elif opcao == 2:
         os.system("cls")
-        listar_por_genero(livro)
+        listar_por_genero(livro) #chama a função listar_por_genero
     elif opcao == 3:
         os.system("cls")
-        listar_por_autor(livro)
+        listar_por_autor(livro) #chama a função listar_por_autor
     elif opcao == 4:
         os.system("cls")
-        listar_emprestados(livro)
+        listar_emprestados(livro) #chama a função listar_emprestados
     else:
         os.system("cls")
         print("Opção inválida")
-        menu_listar_us()
-    back_menu_user()
+        menu_listar_us() #retorna a função listar
+    back_menu_user() #retorna o menu do usuario
 
 
-def listar_todos_livros(livro):
+def listar_todos_livros(livro): #função de listar
     os.system('cls')
-    for id, valor in livro.items():
+    for id, valor in livro.items(): #lista o id, nome, autor, genero e situação
         print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
-def listar_por_genero(livro):
-    busca_genero = input("DIGITE o genêro da pesquisa: \n1-Distopia \n2-Fantasia \n3-Ficção\n----->").capitalize()
+def listar_por_genero(livro): #função de listar por genero
+    busca_genero = input("DIGITE o genêro da pesquisa: \n1-Distopia \n2-Fantasia \n3-Ficção\n----->").capitalize() #atribui uma variavel para facilitar a busca
     os.system('cls')
     for id, valor in livro.items():
-        if valor.getGenero() == busca_genero:
+        if valor.getGenero() == busca_genero: #lista os valores que o genero é igual o valor da variavel
             print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
-def listar_por_autor(livro):
+def listar_por_autor(livro): #função de listar por autor 
     busca_autor = input("Autor:").capitalize()
     os.system('cls')
     for id, valor in livro.items():
-        if valor.getAutor() == busca_autor:
+        if valor.getAutor() == busca_autor: #lista os valores que o autor é igual o informado
             print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
-def listar_emprestados(livro):
+def listar_emprestados(livro): #função de listar livros emprestados
     os.system('cls')
     for id, valor in livro.items():
-        if valor.getSituacao() == "Emprestado":
+        if valor.getSituacao() == "Emprestado": #lista os valores que a situação é = a "Emprestado"
             print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
-def remover_livro(livro):
+def remover_livro(livro): #função de remover livros
     print("Remover um livro do sistema: ")
-    listar_todos_livros(livro)
+    listar_todos_livros(livro) #lista todos os livros
     id = int(input("\nQual o id do livro que você deseja remover?"))
-    if id not in livro:
+    if id not in livro: #se o valor da variavel não for encontrado consta como errado, operador not in
         print("Você digitou o id errado! Digite novamente")
-        remover_livro(livro)
+        remover_livro(livro) #retorna a função
     else:
         os.system("cls")
-        print(f"Livro {livro[id].getTitulo()} removido!")
-        livro.pop(id)
-    back_menu_bibliotecario()
+        print(f"Livro {livro[id].getTitulo()} removido!") #printa o livro indicado
+        livro.pop(id) #remove o livro do dicionario livros, usando o valor da variavel id
+    back_menu_bibliotecario() #retorna a função para voltar pro menu do bibliotecario 
 
-def adicionar_livro(livro):
+def adicionar_livro(livro): #função adicionar livro 
     print("Adicionar um livro:\n")
-    id = len(livro)+1
+    id = len(livro)+1 #+1 para que o id comece sempre em 1
     titulo = input("Título do livro: ").capitalize()
     autor = input("Autor do livro: ").capitalize()
     genero = input("Gênero do livro: ").capitalize()
     situacao = "disponível"
-    livro[id] = Livro(id, titulo, autor, genero, situacao)
+    livro[id] = Livro(id, titulo, autor, genero, situacao) #cria um objeto da classe Livro, armazenado dentro do dicionario livro
     os.system('cls')
-    print(f"Livro {livro[id].getTitulo()} - {livro[id].getAutor()} - {livro[id].getGenero()} adicionado com sucesso.\n")
-    back_menu_bibliotecario()
+    print(f"Livro {livro[id].getTitulo()} - {livro[id].getAutor()} - {livro[id].getGenero()} adicionado com sucesso.\n") #printa o livro adicionado
+    back_menu_bibliotecario() #retorna a função menu do bibliotecario 
 
 def editar_livro(livro):
     print("Livros da biblioteca:")
