@@ -121,7 +121,6 @@ def menu_listar_us(livro): #função de listar livros para o usuario
 
 
 def listar_todos_livros(livro): #função de listar
-    os.system('cls')
     for id, valor in livro.items(): #lista o id, nome, autor, genero e situação
         print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
@@ -181,36 +180,37 @@ def editar_livro(livro):
         os.system('cls')
         print("Você digitou o id errado! Tente novamente")
         editar_livro(livro)  # chama a funcao novamente em caso de erro
-    os.system('cls')
-    print("O que você deseja atualizar?\n1. Título \n2. Autor \n3. Gênero \n4. Situação")
-    atualizar= int(input("\n->"))
-    if atualizar == 1:
-            novo_titulo = input("Digite o novo título:").capitalize()  # solicita novo titulo
-            livro[escolha].setTitulo(novo_titulo)
-            os.system('cls')
-            print(f"Título alterado para: {livro[escolha].getTitulo()}.")
-    elif atualizar == 2:
-            novo_autor = input("Digite o novo autor:").capitalize()  # solicita novo autor
-            livro[escolha].setAutor(novo_autor)
-            os.system('cls')
-            print(f"Autor do livro {livro[escolha].getTitulo()} alterado para {livro[escolha].getAutor()}.")
-    elif atualizar == 3:
-            novo_genero = input("Digite o novo gênero:").capitalize()  # solicita novo genero
-            livro[escolha].setGenero(novo_genero)
-            os.system('cls')
-            print(f"Genêro do livro {livro[escolha].getTitulo()} alterado para {livro[escolha].getGenero()}. ")
-    elif atualizar == 4:
-            nova_situacao = input("Digite a nova situação:").capitalize()  # solicita nova situacao
-            livro[escolha].setSituacao(nova_situacao)
-            if nova_situacao == "Emprestado":  # caso seja emprestado, atualiza
-                livro[escolha].setSituacao(situacao="Emprestado")
-                os.system('cls')
-                print(f"Situação do livro {livro[escolha].getTitulo()} atualizada para {livro[escolha].getSituacao()}!")
     else:
-        os.system("cls")
-        print ("Opção inválida, tente novamente\n")
-        editar_livro()
-    back_menu_bibliotecario()  # retorna ao menu do bibliotecario
+        os.system('cls')
+        print("O que você deseja atualizar?\n1. Título \n2. Autor \n3. Gênero \n4. Situação")
+        atualizar= input("\n->")
+        if atualizar == '1':
+                novo_titulo = input("Digite o novo título:").capitalize()  # solicita novo titulo
+                livro[escolha].setTitulo(novo_titulo)
+                os.system('cls')
+                print(f"Título alterado para: {livro[escolha].getTitulo()}.")
+        elif atualizar == '2':
+                novo_autor = input("Digite o novo autor:").capitalize()  # solicita novo autor
+                livro[escolha].setAutor(novo_autor)
+                os.system('cls')
+                print(f"Autor do livro {livro[escolha].getTitulo()} alterado para {livro[escolha].getAutor()}.")
+        elif atualizar == '3':
+                novo_genero = input("Digite o novo gênero:").capitalize()  # solicita novo genero
+                livro[escolha].setGenero(novo_genero)
+                os.system('cls')
+                print(f"Genêro do livro {livro[escolha].getTitulo()} alterado para {livro[escolha].getGenero()}. ")
+        elif atualizar == '4':
+                nova_situacao = input("Digite a nova situação:").capitalize()  # solicita nova situacao
+                livro[escolha].setSituacao(nova_situacao)
+                if nova_situacao == "Emprestado":  # caso seja emprestado, atualiza
+                    livro[escolha].setSituacao(situacao="Emprestado")
+                    os.system('cls')
+                    print(f"Situação do livro {livro[escolha].getTitulo()} atualizada para {livro[escolha].getSituacao()}!")
+        else:
+            os.system("cls")
+            print ("Opção inválida, tente novamente!\n")
+            editar_livro(livro)
+        back_menu_bibliotecario()  # retorna ao menu do bibliotecario
 
 def devolver():
     # funcao para devolver um livro emprestado
