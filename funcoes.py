@@ -130,6 +130,9 @@ def listar_por_genero(livro): #função de listar por genero
     for id, valor in livro.items():
         if valor.getGenero() == busca_genero: #lista os valores que o genero é igual o valor da variavel
             print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
+        else:
+            print("Opção inválida!\n")
+            listar_por_genero(livro)
 
 def listar_por_autor(livro): #função de listar por autor 
     busca_autor = input("Autor:").title()
