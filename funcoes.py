@@ -116,7 +116,7 @@ def menu_listar_us(livro): #função de listar livros para o usuario
     else:
         os.system("cls")
         print("Opção inválida")
-        menu_listar_us() #retorna a função listar
+        menu_listar_us(livro) #retorna a função listar
     back_menu_user() #retorna o menu do usuario
 
 
@@ -149,6 +149,7 @@ def remover_livro(livro): #função de remover livros
     print("Remover um livro do sistema: ")
     listar_todos_livros(livro) #lista todos os livros
     id = int(input("\nQual o id do livro que você deseja remover?\n--->"))
+
     if id not in livro: #se o valor da variavel não for encontrado consta como errado, operador not in
         print("Você digitou o id errado! Digite novamente")
         remover_livro(livro) #retorna a função
@@ -216,7 +217,12 @@ def devolver():
     print('Devolução de livro:\n')
     id_devolucao = int(input("Digite aqui o id do livro que deseja devolver\n----->"))
 
-    if livro[id_devolucao].getSituacao() == "disponível":  # se ja esta disponivel
+    if id_devolucao not in livro:  # se id nao existe
+        os.system("cls")
+        print("Você digitou um id inexistente! Tente novamente")
+        devolver()
+
+    elif livro[id_devolucao].getSituacao() == "disponível":  # se ja esta disponivel
         os.system("cls")
         print("Você digitou o Id errado, tente novamente!\n")
         sair = int(input("Deseja retornar ao menu?\n1-Sim\n2-Não\n---> "))
@@ -225,10 +231,6 @@ def devolver():
         if sair == 2:
             os.system('cls')
             devolver()
-    elif id_devolucao not in livro:  # se id nao existe
-        os.system("cls")
-        print("Você digitou um id inexistente! Tente novamente")
-        devolver()
 
     elif livro[id_devolucao].getSituacao() == "Emprestado":  # se esta emprestado devolve
          livro[id_devolucao].setSituacao(situacao='disponivel')
