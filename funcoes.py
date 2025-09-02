@@ -100,17 +100,17 @@ def menu_listar_us(livro): #função de listar livros para o usuario
     print("2 - Listar livros por gênero")
     print("3 - Listar livros por autor")
     print("4 - Listar livros emprestados")
-    opcao = int(input("Opção: "))
-    if opcao == 1:
+    opcao = input("Opção: ")
+    if opcao == '1':
         os.system("cls")
         listar_todos_livros(livro) #chama a função listar_todos_livros
-    elif opcao == 2:
+    elif opcao == '2':
         os.system("cls")
         listar_por_genero(livro) #chama a função listar_por_genero
-    elif opcao == 3:
+    elif opcao == '3':
         os.system("cls")
         listar_por_autor(livro) #chama a função listar_por_autor
-    elif opcao == 4:
+    elif opcao == '4':
         os.system("cls")
         listar_emprestados(livro) #chama a função listar_emprestados
     else:
@@ -250,23 +250,24 @@ def menu_user():
         print("2 - Emprestar livro")
         print("3 - Devolver livro")
         print("0 - Sair")
-        opcao = int(input("\nOpção: "))
+        opcao = input("\nOpção: ")
 
-        if opcao == 1:
+        if opcao == '1':
             os.system('cls')
             menu_listar_us(livro)  # lista livros para usuario
-        elif opcao == 2:
+        elif opcao == '2':
             os.system('cls')
             emprestar(livro)  # emprestar livro
-        elif opcao == 3:
+        elif opcao == '3':
             os.system('cls')
             devolver()  # devolver livro
-        elif opcao == 0:
+        elif opcao == '0':
             os.system('cls')
             print("Saindo...")
             os.system('Pause')
             break
         else:
+            os.system('cls')
             print("Opção inválida.")
             continue
         break
@@ -281,26 +282,27 @@ def menu_bibliotecario():
         print("3 - Remover livro")
         print("4 - Editar livro")
         print("0 - Sair")
-        opcao = int(input("\nOpção: "))
+        opcao = input("\nOpção: ")
 
-        if opcao == 1:
+        if opcao == '1':
             os.system('cls')
             menu_listar_bi(livro)  # listar livros
-        elif opcao == 2:
+        elif opcao == '2':
             os.system('cls')
             adicionar_livro(livro)  # adicionar livro
-        elif opcao == 3:
+        elif opcao == '3':
             os.system('cls')
             remover_livro(livro)  # remover livro
-        elif opcao == 4:
+        elif opcao == '4':
             os.system('cls')
             editar_livro(livro)  # editar livro
-        elif opcao == 0:
+        elif opcao == '0':
             os.system('cls')
             print("Saindo...")
             os.system('Pause')
             break
         else:
+            os.system('cls')
             print("Opção inválida.")
             continue
         break
