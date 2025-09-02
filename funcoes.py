@@ -197,7 +197,11 @@ def editar_livro(livro):
     print("Livros da biblioteca:")
     listar_todos_livros(livro)  # lista todos os livros para o usuario escolher
     print("\nDigite o Id do livro que você deseja atualizar:")
-    escolha = int(input("\n->"))
+    escolha = input("\n->")
+    if escolha == "":
+        os.system("cls")
+        print("Você precisa digitar alguma coisa. ")
+        editar_livro(livro)
     if escolha not in livro:  # verifica se o id existe
         os.system('cls')
         print("Você digitou o id errado! Tente novamente")
