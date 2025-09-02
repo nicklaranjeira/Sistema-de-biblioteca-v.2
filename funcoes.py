@@ -58,7 +58,7 @@ def emprestar(livro): #função para emprestar os livros
             print("Esse id não corresponde a nenhum item da lista!\n")
             emprestar(livro) #chama a função emprestar, retorna ao inicio
 
-        empréstimo = int(escolha)
+        empréstimo = int(entrada)
         if livro[empréstimo].getSituacao() == 'Emprestado': #se o livro com o ID informado estiver 'Emprestado', retorna a função emprestar
             os.system("cls")
             print("Este livro já está emprestado! Escolha outra obra.\n\n\n")
@@ -140,9 +140,6 @@ def listar_por_genero(livro): #função de listar por genero
     for id, valor in livro.items():
         if valor.getGenero() == busca_genero: #lista os valores que o genero é igual o valor da variavel
             print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
-        else:
-            print("Opção inválida!\n")
-            listar_por_genero(livro)
 
 def listar_por_autor(livro): #função de listar por autor 
     busca_autor = input("Autor:").title()
