@@ -160,6 +160,7 @@ def remover_livro(livro): #função de remover livros
     id = int(input("\nQual o id do livro que você deseja remover?\n--->"))
 
     if id not in livro: #se o valor da variavel não for encontrado consta como errado, operador not in
+        os.system('cls')
         print("Você digitou o id errado! Digite novamente")
         remover_livro(livro) #retorna a função
     else:
