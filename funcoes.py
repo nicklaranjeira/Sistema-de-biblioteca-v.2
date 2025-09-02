@@ -31,18 +31,16 @@ livro[23]= Livro(id = 23,titulo="O Conto da Aia", autor="Margaret Atwood", gener
 livro[24]= Livro(id = 24,titulo="A Roda do Tempo", autor="Robert Jordan", genero="Fantasia", situacao="disponível")
 livro[25] = Livro(id = 25,titulo="Mistborn", autor="Brandon Sanderson", genero="Fantasia", situacao="disponível")
 
-
-
 def emprestar(livro): #função para emprestar os livros
         print("-------- Empréstimo de livro ---------")
-        busca = int(input("\nComo deseja buscar?\n1-Por Genêro textual \n2-Autor \n3-Todos os livros\n----->"))
-        if busca == 1: 
+        busca = (input("\nComo deseja buscar?\n1-Por Genêro textual \n2-Autor \n3-Todos os livros\n----->"))
+        if busca == '1': 
             os.system('cls')
             listar_por_genero(livro) #chama a função listar_por_genero
-        elif busca == 2:
+        elif busca == '2':
             os.system('cls')
             listar_por_autor(livro) #chama a função listar_por_autor
-        elif busca == 3:
+        elif busca == '3':
             os.system('cls')
             listar_todos_livros(livro) #chama a função listar_todos_livros
         else:
@@ -50,22 +48,34 @@ def emprestar(livro): #função para emprestar os livros
             print("Opção inválida.")
             emprestar(livro) #chama a função emprestar, retorna ao inicio
 
-        empréstimo = int(input("\nDigite o Id do livro que você deseja emprestar:\n----->")) #solicita ID do livro para empréstimo
+        entrada =(input("\nDigite o Id do livro que você deseja emprestar:\n----->")) #solicita ID do livro para empréstimo
 
-        if empréstimo not in livro: # not in: operador de associação serve apenas para sequências, listas ou dicts
-            os.system("cls")
+        if entrada == "":
             print("Esse id não corresponde a nenhum item da lista!\n")
             emprestar(livro) #chama a função emprestar, retorna ao inicio
 
+        else:
+            print("Esse id não corresponde a nenhum item da lista!\n")
+            emprestar(livro) #chama a função emprestar, retorna ao inicio
+
+        empréstimo = int(escolha)
         if livro[empréstimo].getSituacao() == 'Emprestado': #se o livro com o ID informado estiver 'Emprestado', retorna a função emprestar
             os.system("cls")
             print("Este livro já está emprestado! Escolha outra obra.\n\n\n")
             emprestar(livro)
 
-        if livro[empréstimo].getSituacao() == "disponível": #se o livro com o ID informado estiver 'disponível', ele altera a situação usando SET
+        elif livro[empréstimo].getSituacao() == "disponível": #se o livro com o ID informado estiver 'disponível', ele altera a situação usando SET
             livro[empréstimo].setSituacao(situacao='Emprestado')
             os.system('cls')
             print(f"\nLivro {livro[empréstimo].getTitulo()} emprestado com sucesso!\nPrazo máximo para devolução: 30 dias") #retorna o nome do livro
+        elif empréstimo == '':
+            os.system('cls')
+            print("Opção inválida.")
+            emprestar(livro) #chama a função emprestar, retorna ao inicio
+        else:
+            os.system('cls')
+            print("Opção inválida.")
+            emprestar(livro) #chama a função emprestar, retorna ao inicio
         back_menu_user() #retorna ao menu do usuario 
         
 
