@@ -91,7 +91,7 @@ def menu_listar_bi(livro): #função de listagem do bibliotecario
     else:
         os.system('cls')
         print("Opção inválida")
-        menu_listar_bi() #retorna a função listar do bibliotecaro
+        menu_listar_bi(livro) #retorna a função listar do bibliotecaro
     back_menu_bibliotecario() #retorna a função menu do bibliotecario
 
 def menu_listar_us(livro): #função de listar livros para o usuario 
