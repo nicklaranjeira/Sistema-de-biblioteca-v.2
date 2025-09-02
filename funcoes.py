@@ -2,34 +2,35 @@ from classes import * #importa as classes
 import os
 livro = {} # no dicionario a chave é o ID e o valor é um objeto da classe Livro.
 
-livro[1]  = Livro(id = 1, titulo="1984", autor="George Orwell", genero="Distopia", situacao="disponível")
-livro[2]  = Livro(id = 2,titulo="Admirável Mundo Novo", autor="Aldous Huxley", genero="Distopia", situacao="disponível")
-livro[3]  = Livro(id = 3,titulo="Fahrenheit 451", autor="Ray Bradbury", genero="Distopia", situacao="disponível")
-livro[4]  = Livro(id = 4,titulo="Jogos Vorazes", autor="Suzanne Collins", genero="Distopia", situacao="disponível")
-livro[5]  = Livro(id = 5,titulo="Laranja Mecânica", autor="Anthony Burgess", genero="Distopia", situacao="disponível")
-livro[6]  = Livro(id = 6,titulo="O Hobbit", autor="J.R.R. Tolkien", genero="Fantasia", situacao="disponível")
-livro[7]  = Livro(id = 7,titulo="O Senhor dos Anéis", autor="J.R.R. Tolkien", genero="Fantasia", situacao="disponível")
-livro[8]  = Livro(id = 8,titulo="As Crônicas de Nárnia", autor="C.S. Lewis", genero="Fantasia", situacao="disponível")
-livro[9]  = Livro(id = 9,titulo="Harry Potter e a Pedra Filosofal", autor="J.K. Rowling", genero="Fantasia", situacao="disponível")
-livro[10] = Livro(id = 10,titulo="Percy Jackson e o Ladrão de Raios", autor="Rick Riordan", genero="Fantasia", situacao="disponível")
+livro['1']  = Livro(id = '1', titulo="1984", autor="George Orwell", genero="Distopia", situacao="disponível")
+livro['2']  = Livro(id = '2',titulo="Admirável Mundo Novo", autor="Aldous Huxley", genero="Distopia", situacao="disponível")
+livro['3']  = Livro(id = '3',titulo="Fahrenheit 451", autor="Ray Bradbury", genero="Distopia", situacao="disponível")
+livro['4']  = Livro(id = '4',titulo="Jogos Vorazes", autor="Suzanne Collins", genero="Distopia", situacao="disponível")
+livro['5']  = Livro(id = '5',titulo="Laranja Mecânica", autor="Anthony Burgess", genero="Distopia", situacao="disponível")
+livro['6']  = Livro(id = '6',titulo="O Hobbit", autor="J.R.R. Tolkien", genero="Fantasia", situacao="disponível")
+livro['7']  = Livro(id = '7',titulo="O Senhor dos Anéis", autor="J.R.R. Tolkien", genero="Fantasia", situacao="disponível")
+livro['8']  = Livro(id = '8',titulo="As Crônicas de Nárnia", autor="C.S. Lewis", genero="Fantasia", situacao="disponível")
+livro['9']  = Livro(id = '9',titulo="Harry Potter e a Pedra Filosofal", autor="J.K. Rowling", genero="Fantasia", situacao="disponível")
+livro['10'] = Livro(id = '10',titulo="Percy Jackson e o Ladrão de Raios", autor="Rick Riordan", genero="Fantasia", situacao="disponível")
 
-livro[11] = Livro(id = 11,titulo="Fundação", autor="Isaac Asimov", genero="Ficção", situacao="disponível")
-livro[12] = Livro(id = 12,titulo="Eu, Robô", autor="Isaac Asimov", genero="Ficção", situacao="disponível")
-livro[13] = Livro(id = 13,titulo="Neuromancer", autor="William Gibson", genero="Ficção", situacao="disponível")
-livro[14] = Livro(id = 14,titulo="Duna", autor="Frank Herbert", genero="Ficção", situacao="disponível")
-livro[15] = Livro(id = 15,titulo="Frankenstein", autor="Mary Shelley", genero="Ficção", situacao="disponível")
+livro['11'] = Livro(id = '11',titulo="Fundação", autor="Isaac Asimov", genero="Ficção", situacao="disponível")
+livro['12'] = Livro(id = '12',titulo="Eu, Robô", autor="Isaac Asimov", genero="Ficção", situacao="disponível")
+livro['13'] = Livro(id = '13',titulo="Neuromancer", autor="William Gibson", genero="Ficção", situacao="disponível")
+livro['14'] = Livro(id = '14',titulo="Duna", autor="Frank Herbert", genero="Ficção", situacao="disponível")
+livro['15'] = Livro(id = '15',titulo="Frankenstein", autor="Mary Shelley", genero="Ficção", situacao="disponível")
 
-livro[16] = Livro(id = 16,titulo="A Revolução dos Bichos", autor="George Orwell", genero="Distopia", situacao="disponível")
-livro[17] = Livro(id = 17,titulo="A Máquina do Tempo", autor="H.G. Wells", genero="Ficção", situacao="disponível")
-livro[18] = Livro(id = 18,titulo="Guerra dos Mundos", autor="H.G. Wells", genero="Ficção", situacao="disponível")
-livro[19] = Livro(id = 19,titulo="A Canção de Gelo e Fogo", autor="George R.R. Martin", genero="Fantasia", situacao="disponível")
-livro[20] = Livro(id = 20,titulo="O Nome do Vento", autor="Patrick Rothfuss", genero="Fantasia", situacao="disponível")
+livro['16'] = Livro(id = '16',titulo="A Revolução dos Bichos", autor="George Orwell", genero="Distopia", situacao="disponível")
+livro['17'] = Livro(id = '17',titulo="A Máquina do Tempo", autor="H.G. Wells", genero="Ficção", situacao="disponível")
+livro['18'] = Livro(id = '18',titulo="Guerra dos Mundos", autor="H.G. Wells", genero="Ficção", situacao="disponível")
+livro['19'] = Livro(id = '19',titulo="A Canção de Gelo e Fogo", autor="George R.R. Martin", genero="Fantasia", situacao="disponível")
+livro['20'] = Livro(id = '20',titulo="O Nome do Vento", autor="Patrick Rothfuss", genero="Fantasia", situacao="disponível")
 
-livro[21] = Livro(id = 21,titulo="A Mão Esquerda da Escuridão", autor="Ursula K. Le Guin", genero="Ficção", situacao="disponível")
-livro[22]= Livro(id = 22,titulo="Os Despossuídos", autor="Ursula K. Le Guin", genero="Ficção", situacao="disponível")
-livro[23]= Livro(id = 23,titulo="O Conto da Aia", autor="Margaret Atwood", genero="Distopia", situacao="disponível")
-livro[24]= Livro(id = 24,titulo="A Roda do Tempo", autor="Robert Jordan", genero="Fantasia", situacao="disponível")
-livro[25] = Livro(id = 25,titulo="Mistborn", autor="Brandon Sanderson", genero="Fantasia", situacao="disponível")
+livro['21'] = Livro(id = '21',titulo="A Mão Esquerda da Escuridão", autor="Ursula K. Le Guin", genero="Ficção", situacao="disponível")
+livro['22']= Livro(id = '22',titulo="Os Despossuídos", autor="Ursula K. Le Guin", genero="Ficção", situacao="disponível")
+livro['23']= Livro(id = '23',titulo="O Conto da Aia", autor="Margaret Atwood", genero="Distopia", situacao="disponível")
+livro['24']= Livro(id = '24',titulo="A Roda do Tempo", autor="Robert Jordan", genero="Fantasia", situacao="disponível")
+livro['25'] = Livro(id = '25',titulo="Mistborn", autor="Brandon Sanderson", genero="Fantasia", situacao="disponível")
+# A chave do dicionário é usada como string para que as verificações de entradas inválidas no código possam ser tratadas devidamente
 
 def emprestar(livro): #função para emprestar os livros
         print("-------- Empréstimo de livro ---------")
@@ -85,17 +86,17 @@ def menu_listar_bi(livro): #função de listagem do bibliotecario
     print("2 - Listar livros por gênero")
     print("3 - Listar livros por autor")
     print("4 - Listar livros emprestados")
-    opcao = int(input("Opção: "))
-    if opcao == 1:
+    opcao = input("Opção: ")
+    if opcao == '1':
         os.system("cls")
         listar_todos_livros(livro) #chama a função listar_todos_livros
-    elif opcao == 2:
+    elif opcao == '2':
         os.system("cls")
         listar_por_genero(livro) #chama a função listar_por_genero
-    elif opcao == 3:
+    elif opcao == '3':
         os.system("cls")
         listar_por_autor(livro) #chama a função listar_por_autor
-    elif opcao == 4:
+    elif opcao == '4':
         os.system("cls")
         listar_emprestados(livro) #chama a função listar_emprestados
     else:
@@ -135,18 +136,24 @@ def listar_todos_livros(livro): #função de listar
         print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
 def listar_por_genero(livro): #função de listar por genero
-    busca_genero = input("DIGITE o genêro da pesquisa: \n1-Distopia \n2-Fantasia \n3-Ficção\n----->").capitalize() #atribui uma variavel para facilitar a busca
+    busca_genero = input("DIGITE o genêro da pesquisa: \n1-Distopia \n2-Fantasia \n3-Ficção\n----->").capitalize() #atribui uma variavel para facilitar a comparação
     os.system('cls')
-    for id, valor in livro.items():
-        if valor.getGenero() == busca_genero: #lista os valores que o genero é igual o valor da variavel
-            print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
+    if busca_genero == "Distopia" or busca_genero == "Fantasia" or busca_genero == "Ficção":
+        for id, valor in livro.items():
+            if valor.getGenero() == busca_genero: #lista os valores que o genero é igual o valor da variavel
+                print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
+    else:
+        print("Não possuímos esse livro em nossa biblioteca!")
+        listar_por_genero(livro)
 
 def listar_por_autor(livro): #função de listar por autor 
     busca_autor = input("Autor:").title()
-    #os.system('cls')
     for id, valor in livro.items():
         if valor.getAutor() == busca_autor: #lista os valores que o autor é igual o informado
             print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
+        else:
+            print("Não possuímos nenhum livro com esse autor.")
+            listar_por_autor(livro)
 
 def listar_emprestados(livro): #função de listar livros emprestados
     os.system('cls')
@@ -157,9 +164,13 @@ def listar_emprestados(livro): #função de listar livros emprestados
 def remover_livro(livro): #função de remover livros
     print("Remover um livro do sistema: ")
     listar_todos_livros(livro) #lista todos os livros
-    id = int(input("\nQual o id do livro que você deseja remover?\n--->"))
+    id = input("\nQual o id do livro que você deseja remover?\n--->")
 
-    if id not in livro: #se o valor da variavel não for encontrado consta como errado, operador not in
+    if id == "":
+        print("Você precisa digitar algo para prosseguir.")
+        remover_livro(livro)
+
+    elif id not in livro: #se o valor da variavel não for encontrado consta como errado, operador not in
         os.system('cls')
         print("Você digitou o id errado! Digite novamente")
         remover_livro(livro) #retorna a função
@@ -318,12 +329,12 @@ def menu_bibliotecario():
 def back_menu_user():
     # retorna ao menu usuario ou sai
     while True:
-        retorno = int(input("\nPressione 1 para voltar ao menu ou 0 para sair do sistema\n---->"))
-        if retorno == 1:
+        retorno = input("\nPressione 1 para voltar ao menu ou 0 para sair do sistema\n---->")
+        if retorno == '1':
             os.system('cls')
             menu_user()
             break
-        if retorno == 0:
+        if retorno == '0':
             print("Saindo...")
             os.system("cls")
             os.system('pause')
@@ -336,12 +347,12 @@ def back_menu_user():
 def back_menu_bibliotecario():
     # retorna ao menu bibliotecario ou sai
     while True:
-        retorno = int(input("\nPressione 1 para voltar ao menu ou 0 para sair do sistema\n---->"))
-        if retorno == 1:
+        retorno = input("\nPressione 1 para voltar ao menu ou 0 para sair do sistema\n---->")
+        if retorno == '1':
             os.system('cls')
             menu_bibliotecario()
             break
-        if retorno == 0:
+        if retorno == '0':
             print("Saindo...")
             os.system("cls")
             os.system('pause')
