@@ -34,50 +34,44 @@ livro['25'] = Livro(id = '25',titulo="Mistborn", autor="Brandon Sanderson", gene
 
 def emprestar(livro): #função para emprestar os livros
         print("-------- Empréstimo de livro ---------")
-        busca = (input("\nComo deseja buscar?\n1-Por Genêro textual \n2-Autor \n3-Todos os livros\n----->"))
+        busca = input("\nComo deseja buscar?\n1-Por Genêro textual \n2-Autor \n3-Todos os livros\n----->")
         if busca == '1': 
             os.system('cls')
-            listar_por_genero(livro) #chama a função listar_por_genero
+            listar_por_genero(livro)
         elif busca == '2':
             os.system('cls')
-            listar_por_autor(livro) #chama a função listar_por_autor
+            listar_por_autor(livro)
         elif busca == '3':
             os.system('cls')
-            listar_todos_livros(livro) #chama a função listar_todos_livros
+            listar_todos_livros(livro)
         else:
-            os.system('cls')
             print("Opção inválida.")
-            emprestar(livro) #chama a função emprestar, retorna ao inicio
+            emprestar(livro)
 
-        entrada =(input("\nDigite o Id do livro que você deseja emprestar:\n----->")) #solicita ID do livro para empréstimo
+        empréstimo = input("\nDigite o Id do livro que você deseja emprestar:\n----->")
 
-        if entrada == "":
+        if empréstimo == "":
+            print('Você deve digitar alguma coisa para prosseguir.')
+            emprestar(livro)
+        
+        elif empréstimo not in livro: # not in: operador de associação serve apenas para sequências, listas ou dicts
+            os.system("cls")
             print("Esse id não corresponde a nenhum item da lista!\n")
-            emprestar(livro) #chama a função emprestar, retorna ao inicio
+            emprestar(livro)
 
-        else:
-            print("Esse id não corresponde a nenhum item da lista!\n")
-            emprestar(livro) #chama a função emprestar, retorna ao inicio
 
-        empréstimo = int(entrada)
-        if livro[empréstimo].getSituacao() == 'Emprestado': #se o livro com o ID informado estiver 'Emprestado', retorna a função emprestar
+        elif livro[empréstimo].getSituacao() == 'Emprestado':
             os.system("cls")
             print("Este livro já está emprestado! Escolha outra obra.\n\n\n")
             emprestar(livro)
 
-        elif livro[empréstimo].getSituacao() == "disponível": #se o livro com o ID informado estiver 'disponível', ele altera a situação usando SET
+        elif livro[empréstimo].getSituacao() == "disponível":
             livro[empréstimo].setSituacao(situacao='Emprestado')
+            #emprestados[empréstimo] = livro[empréstimo]
             os.system('cls')
-            print(f"\nLivro {livro[empréstimo].getTitulo()} emprestado com sucesso!\nPrazo máximo para devolução: 30 dias") #retorna o nome do livro
-        elif empréstimo == '':
-            os.system('cls')
-            print("Opção inválida.")
-            emprestar(livro) #chama a função emprestar, retorna ao inicio
-        else:
-            os.system('cls')
-            print("Opção inválida.")
-            emprestar(livro) #chama a função emprestar, retorna ao inicio
-        back_menu_user() #retorna ao menu do usuario 
+            print(f"\nLivro {livro[empréstimo].getTitulo()} emprestado com sucesso!\nPrazo máximo para devolução: 30 dias")
+        back_menu_user()
+
         
 
 def menu_listar_bi(livro): #função de listagem do bibliotecario
@@ -241,12 +235,17 @@ def editar_livro(livro):
 def devolver():
     # funcao para devolver um livro emprestado
     print('Devolução de livro:\n')
-    id_devolucao = int(input("Digite aqui o id do livro que deseja devolver\n----->"))
+    id_devolucao = input("Digite aqui o id do livro que deseja devolver\n----->")
 
     if id_devolucao not in livro:  # se id nao existe
         os.system("cls")
         print("Você digitou um id inexistente! Tente novamente")
-        devolver()
+        sair = int(input("Deseja retornar ao menu?\n1-Sim\n2-Não\n---> "))
+        if sair == 1:
+            back_menu_user()
+        if sair == 2:
+            os.system('cls')
+            devolver()
 
     elif livro[id_devolucao].getSituacao() == "disponível":  # se ja esta disponivel
         os.system("cls")
