@@ -1,6 +1,6 @@
 from classes import * #importa as classes 
 import os
-livro = {} #no dicionario a chave é o ID e o valor é um objeto da classe Livro.
+livro = {} # no dicionario a chave é o ID e o valor é um objeto da classe Livro.
 
 livro[0 +1]  = Livro(id = 1, titulo="1984", autor="George Orwell", genero="Distopia", situacao="disponível")
 livro[1 + 1]  = Livro(id = 2,titulo="Admirável Mundo Novo", autor="Aldous Huxley", genero="Distopia", situacao="disponível")
@@ -133,8 +133,8 @@ def listar_por_genero(livro): #função de listar por genero
             print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
 
 def listar_por_autor(livro): #função de listar por autor 
-    busca_autor = input("Autor:").capitalize()
-    os.system('cls')
+    busca_autor = input("Autor:").title()
+    #os.system('cls')
     for id, valor in livro.items():
         if valor.getAutor() == busca_autor: #lista os valores que o autor é igual o informado
             print(f'{id} - {valor.getTitulo()} - {valor.getAutor()} - {valor.getGenero()} - {valor.getSituacao()}')
