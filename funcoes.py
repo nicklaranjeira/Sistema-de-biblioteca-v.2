@@ -178,17 +178,33 @@ def remover_livro(livro): #função de remover livros
         livro.pop(id) #remove o livro do dicionario livros, usando o valor da variavel id
     back_menu_bibliotecario() #retorna a função para voltar pro menu do bibliotecario 
 
-def adicionar_livro(livro): #função adicionar livro 
+def adicionar_livro(livro): 
     print("Adicionar um livro:\n")
-    id = len(livro)+1 #+1 para que o id comece sempre em 1
+    id = str(len(livro)+1)  # transforma em string (pra manter compatível com o resto)
     titulo = input("Título do livro: ").capitalize()
+    if titulo == "":
+        os.system("cls")
+        print("O título não pode ser vazio!")
+        return adicionar_livro(livro)
+
     autor = input("Autor do livro: ").capitalize()
+    if autor == "":
+        os.system("cls")
+        print("O autor não pode ser vazio!")
+        return adicionar_livro(livro)
+
     genero = input("Gênero do livro: ").capitalize()
+    if genero.strip() == "":
+        os.system("cls")
+        print("O gênero não pode ser vazio!")
+        return adicionar_livro(livro)
+
     situacao = "disponível"
     livro[id] = Livro(id, titulo, autor, genero, situacao) #cria um objeto da classe Livro, armazenado dentro do dicionario livro
     os.system('cls')
     print(f"Livro {livro[id].getTitulo()} - {livro[id].getAutor()} - {livro[id].getGenero()} adicionado com sucesso.\n") #printa o livro adicionado
     back_menu_bibliotecario() #retorna a função menu do bibliotecario 
+        
         
 def editar_livro(livro):
     # funcao para editar os dados de um livro existente
