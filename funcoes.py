@@ -184,7 +184,7 @@ def remover_livro(livro): #função de remover livros
     back_menu_bibliotecario() #retorna a função para voltar pro menu do bibliotecario 
 
 def adicionar_livro(livro): 
-    print("Adicionar um livro:\n")
+    print("Adicionar um livro:\n")  
     id = str(len(livro)+1)  # transforma em string (pra manter compatível com o resto)
     titulo = input("Título do livro: ").capitalize()
     if titulo == "":
